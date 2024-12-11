@@ -1,0 +1,258 @@
+// Code Number 1 OOP;
+
+// #include <iostream>
+// using namespace std;
+// class Complex{
+//     int real;
+//     int imag;
+//     public:
+//     Complex(int x,int y){
+//         real = x;
+//         imag = y;
+//     }
+//     Complex(){
+//         real = 0;
+//         imag = 0;
+//     }
+//     void display_addition(){
+//         cout<<real<<" + "<<imag<<"i"<<endl;
+//     }
+//     void display_multi(){
+//         cout<<real<<" * "<<imag<<"i"<<endl;
+//     }
+//     Complex operator + (Complex const &c){
+//         Complex temp;
+//         temp.real = real + c.real;
+//         temp.imag = imag + c.imag;
+//         return temp;
+//     }
+//     Complex operator * (Complex const &c){
+//         Complex temp;
+//         temp.real = real * c.real;
+//         temp.imag = imag * c.imag;
+//         return temp;
+//     }
+//     friend void operator << (ostream & cout ,Complex &c){
+//         cout<<"You Entered :"<<endl;
+//         cout<<c.real;
+//         if(c.imag >=0){
+//             cout<<" + "<<c.imag<<"i"<<endl;
+//         }
+//         else{
+//             cout<<" - "<<-c.imag<<"i"<<endl;
+//         }
+//     }
+//     friend void operator >> (istream & cin ,Complex &c){
+//         cout<<"Enter Two Numbers (Real and Imag) :"<<endl;
+//         cin>>c.real;
+//         cin>>c.imag;
+//     }
+// };
+// int main() {
+//     Complex obj1(20,5);
+//     Complex obj2(10,3);
+//     Complex obj3 = obj1 + obj2;
+//     obj3.display_addition();
+
+//     obj3 = obj1 * obj2;
+//     obj3.display_multi();
+
+//     Complex obj4;
+//     cin>>obj4;
+//     cout<<obj4;
+
+//     return 0;
+// }
+
+
+
+// Code Number 2 OOP;
+
+// #include <iostream>
+// #include <string.h>
+// #include <stdexcept>
+
+// using namespace std;
+// class Publication{
+//     string title;
+//     float price;
+
+//     public:
+//     Publication(string a,float b){
+//         title = a;
+//         price = b;
+//     }
+//     void display(){
+//         cout<<"The Title Of The Book :"<<title<<endl;
+//         cout<<"Price :"<<price<<endl;
+//     }
+
+// };
+// class book :public Publication{
+//     int page_count;
+//     public:
+//     book(string a,float b,int x) : Publication(a,b){
+//         page_count = x;
+
+//     }
+//     void display(){
+//         Publication::display();
+//         if (page_count <=0)
+//         {
+//             throw runtime_error("zero");
+//         }
+//         else
+//         {
+//         cout<<"Page Count :"<<page_count<<endl;
+//         cout<<endl;
+//         }
+//     }
+// };
+// class tape : public Publication{
+//     float play_time;
+//     public:
+//     tape(string a,float b,float z):Publication(a,b){
+
+//         play_time = z;
+//     }
+//     void display(){
+//         Publication::display();
+//         cout<<"Play Time :"<<play_time<<" minute"<<endl;
+//     }
+
+// };
+// int main(){
+//     try{
+
+//     Publication obj("Learn C++",29.50);
+
+//     book obj1("Learn C++",29.50f,350);
+//     obj1.display();
+
+//     tape obj2("C++ Audio Book",15.90f,3.5f);
+//     obj2.display();
+
+//     }
+//     catch(const exception&c){
+//         cout<<"The Error Occurs :"<<endl;
+//         Publication obj("",0.0);
+//         obj.display();
+//         book obj1("",0.0,0);
+//         obj1.display();
+//         tape obj2("",0.0,0.0);
+//         obj2.display();
+//     }
+//     return 0;
+// }
+
+
+
+
+// // Code Number 3 OOP;
+
+// #include <iostream>
+// #include <fstream>
+// #include <string.h>
+// using namespace std;
+
+// int main()
+// {
+//     string line;
+//     ofstream file("xyz.txt");
+//     if (!file)
+//     {
+//         cerr << "Error While Opening The File!!";
+//     }
+
+//     cout << "Enter line :" << endl;
+//     getline(cin,line);
+
+//     file << line;
+
+//     file.close();
+
+//     ifstream file1("xyz.txt");
+//     if (!file1)
+//     {
+//         cerr << "Error While Opening The File!!";
+//     }
+// ;
+//     while (getline(file1, line))
+//     {
+//         cout << line;
+//     }
+
+//     file1.close();
+//     return 0;
+// }
+
+
+
+// code number 4 oop
+
+// #include <iostream>
+// using namespace std;
+// template<typename T>
+// void selectionsort(T arr[],int n){
+//     for (int i = 0; i < n - 1; i++)
+//     {
+//         int min = i;
+//         for (int j = i+1; j < n ; j++)
+//         {
+//             if (arr[min]>arr[j])
+//             {
+//                 min = j;
+//             }
+//         }
+//         T temp = arr[i];
+//         arr[i] = arr[min];
+//         arr[min] = temp;
+//     }
+// }
+// template<typename T>
+// void display(T arr[],int n){
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout<<" "<<arr[i]<<" ";
+//     }
+// }
+// int main(){
+//     int arr[] ={30,20,40,10,90};
+//     int n = 5;
+//     selectionsort(arr,n);
+//     display(arr,n);
+//     cout<<endl;
+
+//     float arr1[] ={3.4,2.3,4.1,1.1,9.9};
+//     selectionsort(arr1,n);
+//     display(arr1,n);
+
+    
+//     return 0;
+// }
+
+
+// code number 5 oop
+
+// #include <iostream>
+// #include <map>
+// #include <string.h>
+// using namespace std;
+// int main(){
+//     map<string,int>state_pop = {{"Maharashtra",12121212},{"Assam",902212}};
+
+//     string state;
+//     cout<<"Enter State :"<<endl;
+//     cin>>state;
+
+//     if (state_pop.end() != state_pop.find(state) )
+//     {
+//         cout<<"State :-"<<state<<"\n"<<"Population :-"<<state_pop[state];
+        
+//     }
+//     else{
+//         cout<<"Please Enter Valid State Name!!"<<endl;
+//     }
+    
+//     return 0;
+// }
